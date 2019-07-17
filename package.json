@@ -1,0 +1,25 @@
+{
+  "name": "eqm-react",
+  "version": "1.0.0",
+  "description": "eqm using react-node-sql",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "json-server": "json-server --watch tbldata.json --port 5000",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Mathew Uy",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "json-server": "^0.15.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mssql": "^5.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
