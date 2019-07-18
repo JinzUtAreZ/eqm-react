@@ -1,7 +1,7 @@
 import { GET_ASSETLIST, SET_LOADING, ASSET_ERROR } from '../types/Assettypes';
 
 const initialState = {
-  assetlist: [],
+  assetlist: null,
   loading: false,
   current: null,
   error: null
