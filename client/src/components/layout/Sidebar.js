@@ -157,7 +157,7 @@ export default function PersistentDrawerLeft() {
         <List>
           <ListItem button>
             <ListItemIcon>
-              <i class="material-icons">home</i>
+              <i className="material-icons">home</i>
             </ListItemIcon>
             <ListItemText primary="Home" />
           </ListItem>
@@ -168,7 +168,7 @@ export default function PersistentDrawerLeft() {
           {Link1.map((text, index) => (
             <ListItem button key={text[0]}>
               <ListItemIcon>
-                <i class="material-icons">{text[1]}</i>
+                <i className="material-icons">{text[1]}</i>
               </ListItemIcon>
               <ListItemText>
                 <Link to={`/${text[0]}`}>{text[0]}</Link>
@@ -180,7 +180,7 @@ export default function PersistentDrawerLeft() {
         <List>
           <ListItem button>
             <ListItemIcon>
-              <i class="material-icons">commute</i>
+              <i className="material-icons">commute</i>
             </ListItemIcon>
             <ListItemText primary="SVR" />
           </ListItem>
@@ -189,7 +189,7 @@ export default function PersistentDrawerLeft() {
         <List>
           <ListItem button>
             <ListItemIcon>
-              <i class="material-icons">local_car_wash</i>
+              <i className="material-icons">local_car_wash</i>
             </ListItemIcon>
             <ListItemText primary="Job Order" />
           </ListItem>
@@ -200,7 +200,7 @@ export default function PersistentDrawerLeft() {
           {Link2.map((text, index) => (
             <ListItem button key={text[0]}>
               <ListItemIcon>
-                <i class="material-icons">{text[1]}</i>
+                <i className="material-icons">{text[1]}</i>
               </ListItemIcon>
               <ListItemText primary={text[0]} />
             </ListItem>

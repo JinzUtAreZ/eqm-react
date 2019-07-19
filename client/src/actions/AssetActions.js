@@ -11,7 +11,7 @@ export const getAssetList = () => async dispatch => {
     setLoading();
     const res = await fetch('/api/assets');
     const data = await res.json();
-    console.log(data);
+    //console.log(data);
 
     dispatch({
       type: GET_ASSETLIST,
@@ -29,9 +29,31 @@ export const getAssetList = () => async dispatch => {
     });
   }
 };
+//// set loading icon while retrieving data ////
 
 export const setLoading = () => {
   return {
     type: SET_LOADING
   };
+};
+
+//// Search asset columns in asset list ////
+
+export const searchAssetList = text => async dispatch => {
+  try {
+    setLoading();
+    //// search going to server ////
+    // const res = await fetch(`/assets?q=${text}`);
+    // const data = await res.json();
+
+    dispatch({
+      type: SEARCH_ASSETLIST,
+      payload: text
+    });
+  } catch (err) {
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
 };
