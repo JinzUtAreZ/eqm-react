@@ -2,11 +2,13 @@ import {
   GET_ASSETLIST,
   SET_LOADING,
   ASSET_ERROR,
-  SEARCH_ASSETLIST
+  SEARCH_ASSETLIST,
+  CLEAR_ASSET
 } from '../types/Assettypes';
 
 const initialState = {
   assetlist: null,
+  assetcol: null,
   loading: false,
   current: null,
   filtered: null,
@@ -28,13 +30,21 @@ export default (state = initialState, action) => {
       };
     case GET_ASSETLIST:
       console.log(action.payload);
+      const assetcol = Object.keys(action.payload[0]).map(key => {
+        return {
+          Header: key,
+          accessor: key
+        };
+      });
       return {
         ...state,
         assetlist: action.payload,
+        fitered: action.payload,
+        assetcol: assetcol,
         loading: false
       };
     case SEARCH_ASSETLIST:
-      const textvalue = action.payload;
+      const textvalue = action.payload.toUpperCase();
       const filtered = state.assetlist.filter(
         assetcolumn =>
           assetcolumn.AssetCode.includes(textvalue) ||
@@ -46,19 +56,8 @@ export default (state = initialState, action) => {
       );
 
       return { ...state, filtered };
-    //return {
-    //  ...state,
-    //  filtered: state.assetlist //.filter(assetcolumn => {
-    // return (
-    //   assetcolumn.AssetCode.includes(action.payload) ||
-    //   assetcolumn.AssetTag.includes(action.payload) ||
-    //   assetcolumn.AssetName.includes(action.payload) ||
-    //   assetcolumn.Manufacturer.includes(action.payload) ||
-    //   assetcolumn.ModelNo.includes(action.payload) ||
-    //   assetcolumn.SerialNo.includes(action.payload)
-    // );
-    //})
-    //};
+    case CLEAR_ASSET:
+      return { ...state, filtered: null };
     default:
       return state;
   }

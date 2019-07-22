@@ -2,7 +2,8 @@ import {
   GET_ASSETLIST,
   SET_LOADING,
   SEARCH_ASSETLIST,
-  ASSET_ERROR
+  ASSET_ERROR,
+  CLEAR_ASSET
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -39,7 +40,7 @@ export const setLoading = () => {
 
 //// Search asset columns in asset list ////
 
-export const searchAssetList = text => async dispatch => {
+export const searchAssetList = text => dispatch => {
   try {
     setLoading();
     //// search going to server ////
@@ -56,4 +57,10 @@ export const searchAssetList = text => async dispatch => {
       payload: err.response.statusText
     });
   }
+};
+
+export const clearAssetFilter = () => {
+  return {
+    type: CLEAR_ASSET
+  };
 };

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { searchAssetList } from '../../actions/AssetActions';
+import { searchAssetList, clearAssetFilter } from '../../actions/AssetActions';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -21,7 +21,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AssetSearch = ({ asset: { filtered }, searchAssetList }) => {
+const AssetSearch = ({
+  asset: { filtered },
+  searchAssetList,
+  clearAssetFilter
+}) => {
   const classes = useStyles();
   const text = useRef('');
 
@@ -37,12 +41,11 @@ const AssetSearch = ({ asset: { filtered }, searchAssetList }) => {
   }
 
   const onChange = e => {
-    if (e.target.value !== '') {
-      searchAssetList(e.target.value);
+    if (e.target.value.trim() !== '') {
+      searchAssetList(e.target.value.trim());
+    } else {
+      clearAssetFilter();
     }
-    //else {
-    //clearFilter();
-    //}
   };
 
   return (
@@ -78,5 +81,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { searchAssetList }
+  { searchAssetList, clearAssetFilter }
 )(AssetSearch);

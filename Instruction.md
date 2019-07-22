@@ -53,3 +53,7 @@
     export default store;
 
 15. create actions reducer types folder.
+
+watch for redux tutorials
+https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw/videos
+https://www.youtube.com/watch?v=jXp05H8whtM

@@ -7,12 +7,12 @@ import Preloader from '../layout/Spinner';
 import AssetSearch from '../asset/AssetSearch';
 
 const AssetList = ({
-  asset: { assetlist, loading, filtered },
+  asset: { assetlist, assetcol, loading, filtered },
   getAssetList
 }) => {
   var [tbldata, setTbldata] = useState([]);
   const [coldata, setColdata] = useState([]);
-  const [chkloop, setChkLoop] = useState(1);
+  const [chkloop, setChkLoop] = useState(false);
   const [selected, setSelect] = useState(-1);
 
   useEffect(() => {
@@ -20,22 +20,15 @@ const AssetList = ({
     // eslint-disable-next-line
   }, []);
 
-  const populate = () => {
-    if (filtered !== null) {
-      tbldata = filtered;
-    } else {
-      tbldata = assetlist;
-    }
-    setTbldata(tbldata);
-    setColdata(
-      Object.keys(tbldata[0]).map(key => {
-        return {
-          Header: key,
-          accessor: key
-        };
-      })
-    );
-  };
+  // const populate = () => {
+  //   if (filtered !== null && filtered.length !== 0) {
+  //     tbldata = filtered;
+  //   } else {
+  //     tbldata = assetlist;
+  //   }
+  //   setTbldata(tbldata);
+  //   setColdata(assetcol);
+  // };
 
   const ClickRow = (state, rowInfo, instance) => {
     if (rowInfo && rowInfo.row) {
@@ -60,26 +53,41 @@ const AssetList = ({
 
   if (loading || assetlist === null) {
     return <Preloader />;
-  } else {
-    if (chkloop === 1) {
-      populate();
-      setChkLoop(2);
+  }
+
+  if (filtered !== null) {
+    if (filtered.length === 0) {
+      tbldata = <p className="center">No data to show ...</p>;
+    } else {
+      tbldata = (
+        <ReactTable
+          data={filtered}
+          columns={assetcol}
+          defaultPageSize={10}
+          className="-striped -highlight"
+          getTrProps={ClickRow}
+        />
+      );
     }
+  } else {
+    tbldata = (
+      <ReactTable
+        data={assetlist}
+        columns={assetcol}
+        defaultPageSize={10}
+        className="-striped -highlight"
+        getTrProps={ClickRow}
+      />
+    );
   }
 
   return (
     <div>
       <AssetSearch />
-      {assetlist.length === 0 ? (
+      {assetlist === null ? (
         <p className="center">No data to show ...</p>
       ) : (
-        <ReactTable
-          data={tbldata}
-          columns={coldata}
-          defaultPageSize={10}
-          className="-striped -highlight"
-          getTrProps={ClickRow}
-        />
+        tbldata
       )}
     </div>
   );
