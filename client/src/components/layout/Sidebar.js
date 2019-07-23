@@ -25,6 +25,7 @@ import Profile from '../pages/Profile';
 import Create from '../pages/Create';
 import ContactUs from '../pages/ContactUs';
 import AssetList from '../asset/Assetlist';
+import AssetData from '../asset/AssetData';
 
 const drawerWidth = 240;
 
@@ -90,7 +91,7 @@ export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const Link1 = [
-    ['Asset', 'chrome_reader_mode'],
+    ['AssetList', 'chrome_reader_mode'],
     ['Work Request', 'list'],
     ['Work Order', 'list_alt']
   ];
@@ -219,7 +220,8 @@ export default function PersistentDrawerLeft() {
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/create" component={Create} />
           <Route exact path="/contactus" component={ContactUs} />
-          <Route exact path="/Asset" component={AssetList} />
+          <Route exact path="/AssetList" component={AssetList} />
+          <Route exact path="/AssetData" component={AssetData} />
         </Switch>
       </main>
     </div>

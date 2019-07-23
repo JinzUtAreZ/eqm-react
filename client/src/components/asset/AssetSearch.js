@@ -31,14 +31,9 @@ const AssetSearch = ({
 
   useEffect(() => {
     if (filtered === null) {
-      console.log('LETCHENG REF YAN');
       text.current.value = '';
     }
   });
-
-  if (filtered !== null) {
-    console.log(filtered);
-  }
 
   const onChange = e => {
     if (e.target.value.trim() !== '') {

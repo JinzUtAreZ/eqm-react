@@ -5,14 +5,13 @@ import { connect } from 'react-redux';
 import { getAssetList } from '../../actions/AssetActions';
 import Preloader from '../layout/Spinner';
 import AssetSearch from '../asset/AssetSearch';
+import AssetButtons from '../asset/AssetButtons';
 
 const AssetList = ({
   asset: { assetlist, assetcol, loading, filtered },
   getAssetList
 }) => {
-  var [tbldata, setTbldata] = useState([]);
-  const [coldata, setColdata] = useState([]);
-  const [chkloop, setChkLoop] = useState(false);
+  let [tbldata] = useState([]);
   const [selected, setSelect] = useState(-1);
 
   useEffect(() => {
@@ -20,21 +19,8 @@ const AssetList = ({
     // eslint-disable-next-line
   }, []);
 
-  // const populate = () => {
-  //   if (filtered !== null && filtered.length !== 0) {
-  //     tbldata = filtered;
-  //   } else {
-  //     tbldata = assetlist;
-  //   }
-  //   setTbldata(tbldata);
-  //   setColdata(assetcol);
-  // };
-
   const ClickRow = (state, rowInfo, instance) => {
     if (rowInfo && rowInfo.row) {
-      // if (rowInfo.index === parseInt(tbldata.length - 1)) {
-      //   setLoading(false);
-      // }
       return {
         onClick: e => {
           setSelect(rowInfo.index);
@@ -89,6 +75,7 @@ const AssetList = ({
       ) : (
         tbldata
       )}
+      <AssetButtons />
     </div>
   );
 };
