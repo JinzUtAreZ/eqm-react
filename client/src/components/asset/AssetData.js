@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+
+import AssetDataInfo from './AssetDataInfo';
+import AssetDataProd from './AssetDataProd';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -10,153 +12,30 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    marginBottom: theme.spacing(2),
+    background: 'linear-gradient(45deg, #e3f2fd 30%, #90caf9 90%)',
+    boxShadow: '0 3px 5px 2px rgba(0,0,0,0.32)'
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1)
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    fullWidth: true,
+    display: 'flex'
   }
 }));
 
 const AssetData = () => {
-  const [values, setValues] = useState({
-    name: 'Cat in the Hat',
-    longname: 'Super Long name Testing Only Oh yeah',
-    age: '',
-    multiline: 'Controlled',
-    currency: 'EUR'
-  });
-
-  const handleChange = name => event => {
-    setValues({ ...values, [name]: event.target.value });
-  };
-
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Code"
-            className={classes.textField}
-            value={values.name}
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Name"
-            className={classes.textField}
-            value={values.longname}
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Description"
-            className={classes.textField}
-            value={values.name}
-            multiline
-            rows="4"
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Status"
-            className={classes.textField}
-            value={values.name}
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Category"
-            className={classes.textField}
-            value={values.longname}
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={4} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset SubCategory"
-            className={classes.textField}
-            value={values.name}
-            rows="4"
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Grid item xs={6} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Name"
-            className={classes.textField}
-            value={values.longname}
-            multiline
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={6} sm={3} md>
-          <TextField
-            id="outlined-name"
-            label="Asset Description"
-            className={classes.textField}
-            value={values.name}
-            multiline
-            rows="4"
-            onChange={handleChange('name')}
-            margin="normal"
-            variant="outlined"
-            fullWidth
-          />
-        </Grid>
-      </Grid>
+      <AssetDataInfo />
+      <AssetDataProd />
 
       <Grid container spacing={3}>
         <Grid item xs={12}>

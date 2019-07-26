@@ -57,3 +57,6 @@
 watch for redux tutorials
 https://www.youtube.com/channel/UC2xRE4hUCQ3xO3ymEtMh1Hw/videos
 https://www.youtube.com/watch?v=jXp05H8whtM
+
+16. npm i @material-ui/pickers @date-io/date-fns date-fns@next
+    datetimepickers = https://material-ui-pickers.dev/getting-started/installation
