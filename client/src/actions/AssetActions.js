@@ -3,7 +3,8 @@ import {
   SET_LOADING,
   SEARCH_ASSETLIST,
   ASSET_ERROR,
-  CLEAR_ASSET
+  CLEAR_ASSET,
+  ASSET_STATUS
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -63,4 +64,22 @@ export const clearAssetFilter = () => {
   return {
     type: CLEAR_ASSET
   };
+};
+
+export const getAssetStatus = seltype => async dispatch => {
+  try {
+    setLoading();
+    const res = await fetch(`/api/assetSelect/${seltype}`);
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_STATUS,
+      payload: data
+    });
+  } catch (err) {
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
 };

@@ -3,7 +3,8 @@ import {
   SET_LOADING,
   ASSET_ERROR,
   SEARCH_ASSETLIST,
-  CLEAR_ASSET
+  CLEAR_ASSET,
+  ASSET_STATUS
 } from '../types/Assettypes';
 
 const initialState = {
@@ -12,7 +13,8 @@ const initialState = {
   loading: false,
   current: null,
   filtered: null,
-  error: null
+  error: null,
+  assetstatus: []
 };
 
 export default (state = initialState, action) => {
@@ -58,6 +60,8 @@ export default (state = initialState, action) => {
       return { ...state, filtered };
     case CLEAR_ASSET:
       return { ...state, filtered: null };
+    case ASSET_STATUS:
+      return { ...state, assetstatus: action.payload };
     default:
       return state;
   }
