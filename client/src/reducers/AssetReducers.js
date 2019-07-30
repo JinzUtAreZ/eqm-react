@@ -4,7 +4,8 @@ import {
   ASSET_ERROR,
   SEARCH_ASSETLIST,
   CLEAR_ASSET,
-  ASSET_STATUS
+  ASSET_STATUS,
+  ASSET_CATEGORY
 } from '../types/Assettypes';
 
 const initialState = {
@@ -14,7 +15,8 @@ const initialState = {
   current: null,
   filtered: null,
   error: null,
-  assetstatus: []
+  assetstatus: [],
+  assetcategory: []
 };
 
 export default (state = initialState, action) => {
@@ -62,6 +64,8 @@ export default (state = initialState, action) => {
       return { ...state, filtered: null };
     case ASSET_STATUS:
       return { ...state, assetstatus: action.payload };
+    case ASSET_CATEGORY:
+      return { ...state, assetcategory: action.payload };
     default:
       return state;
   }

@@ -4,7 +4,8 @@ import {
   SEARCH_ASSETLIST,
   ASSET_ERROR,
   CLEAR_ASSET,
-  ASSET_STATUS
+  ASSET_STATUS,
+  ASSET_CATEGORY
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -80,6 +81,24 @@ export const getAssetStatus = seltype => async dispatch => {
     dispatch({
       type: ASSET_ERROR,
       payload: err.response.statusText
+    });
+  }
+};
+
+export const getAssetCategory = seltype => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}`);
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_CATEGORY,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.message.statusText
     });
   }
 };

@@ -1,17 +1,15 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import React, { Fragment, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getAssetStatus } from '../../../actions/AssetActions';
+import { getAssetCategory } from '../../../actions/AssetActions';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import { MenuItem } from '@material-ui/core';
 
-const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
-  let [values, setValues] = useState({ status: '' });
-
+const Category = ({ asset: { assetcategory }, getAssetCategory }) => {
+  const [values, setValues] = useState('');
   useEffect(() => {
-    getAssetStatus('Status');
-
-    // eslint-disable-next-line
+    getAssetCategory('Category');
+    //eslint-disable-next-line
   }, []);
 
   const handleChange = event => {
@@ -24,7 +22,7 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
   return (
     <Fragment>
       <InputLabel shrink htmlFor="status-simple">
-        Asset Status
+        Asset Category
       </InputLabel>
       <Select
         value={values.status}
@@ -34,14 +32,14 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
           id: 'status-simple'
         }}
       >
-        {assetstatus.map((stat, index) =>
+        {assetcategory.map((category, index) =>
           index === 0 ? (
             <MenuItem key={index} value="" disabled>
-              <em>{'Please Select'}</em>{' '}
+              <em>{'Please Select'}</em>
             </MenuItem>
           ) : (
-            <MenuItem key={index} value={stat.StatusID}>
-              <em>{stat.StatusDesc}</em>{' '}
+            <MenuItem key={index} value={category.id}>
+              <em>{category.CatDesc}</em>
             </MenuItem>
           )
         )}
@@ -56,5 +54,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssetStatus }
-)(Status);
+  { getAssetCategory }
+)(Category);

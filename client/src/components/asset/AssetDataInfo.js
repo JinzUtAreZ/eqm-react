@@ -11,6 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import StatSelect from './assetSelect/Status';
+import CatSelect from './assetSelect/Category';
 
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -113,24 +114,7 @@ const AssetDataInfo = () => {
 
           <Grid item xs={4} sm={3} md>
             <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Asset Category
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
+              <CatSelect />
             </FormControl>
           </Grid>
 

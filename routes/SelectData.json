@@ -1,0 +1,330 @@
+{
+  "Status": [
+    {
+      "StatusID": 60,
+      "StatusDesc": "Active"
+    },
+    {
+      "StatusID": 61,
+      "StatusDesc": "Not Active"
+    },
+    {
+      "StatusID": 62,
+      "StatusDesc": "Under Maintenance"
+    },
+    {
+      "StatusID": 65,
+      "StatusDesc": "Breakdown "
+    },
+    {
+      "StatusID": 66,
+      "StatusDesc": "Operational "
+    },
+    {
+      "StatusID": 67,
+      "StatusDesc": "Recommended for Disposal"
+    },
+    {
+      "StatusID": 68,
+      "StatusDesc": "Preventive Maintenance"
+    },
+    {
+      "StatusID": 69,
+      "StatusDesc": "Breakdown Maintenance"
+    },
+    {
+      "StatusID": 70,
+      "StatusDesc": "Corrective Maintenance"
+    },
+    {
+      "StatusID": 71,
+      "StatusDesc": "Operational - Ready line"
+    },
+    {
+      "StatusID": 72,
+      "StatusDesc": "Operational - Deployed"
+    },
+    {
+      "StatusID": 73,
+      "StatusDesc": " DISPOSED"
+    },
+    {
+      "StatusID": 74,
+      "StatusDesc": "Missing / Lost"
+    },
+    {
+      "StatusID": 75,
+      "StatusDesc": "For Repair"
+    },
+    {
+      "StatusID": 76,
+      "StatusDesc": "Deleted"
+    }
+  ],
+  "Category": [
+    {
+      "id": 80,
+      "CatDesc": "BUILDING AND FACILITY"
+    },
+    {
+      "id": 81,
+      "CatDesc": "ICT EQUIPMENTS"
+    },
+    {
+      "id": 82,
+      "CatDesc": "OFFICE FURNITURE AND EQUIPMENT"
+    },
+    {
+      "id": 83,
+      "CatDesc": "TRANSPORTATION EQUIPMENT"
+    },
+    {
+      "id": 84,
+      "CatDesc": "HANDLING PORT EQUIPMENTS"
+    },
+    {
+      "id": 85,
+      "CatDesc": "STEREO RECORDER "
+    },
+    {
+      "id": 87,
+      "CatDesc": "ADMINISTRATION BUILDING"
+    },
+    {
+      "id": 88,
+      "CatDesc": "OPERATION BUILDING 1"
+    },
+    {
+      "id": 89,
+      "CatDesc": "OPERATION BUILDING 2"
+    },
+    {
+      "id": 90,
+      "CatDesc": "DESKTOP COMPUTERS"
+    },
+    {
+      "id": 91,
+      "CatDesc": "LAPTOPS AND NOTEBOOK COMPUTERS"
+    },
+    {
+      "id": 92,
+      "CatDesc": "CISCO TELEPHONY"
+    },
+    {
+      "id": 93,
+      "CatDesc": "SPLIT TYPE AIRCON"
+    },
+    {
+      "id": 94,
+      "CatDesc": "DESKTOP SERVERS"
+    },
+    {
+      "id": 95,
+      "CatDesc": "WINDOW TYPE AIRCON"
+    },
+    {
+      "id": 96,
+      "CatDesc": "UTILITY VEHICLE"
+    },
+    {
+      "id": 97,
+      "CatDesc": "SERVICE VEHICLE"
+    },
+    {
+      "id": 98,
+      "CatDesc": "FORKLIFT"
+    },
+    {
+      "id": 100,
+      "CatDesc": "FREQUENCY RADIO"
+    },
+    {
+      "id": 101,
+      "CatDesc": "CHAIRS"
+    },
+    {
+      "id": 110,
+      "CatDesc": "LIGHT VEHICLE"
+    },
+    {
+      "id": 111,
+      "CatDesc": "MOTORCYCLE"
+    },
+    {
+      "id": 114,
+      "CatDesc": "TABLES"
+    },
+    {
+      "id": 115,
+      "CatDesc": "CABINET"
+    },
+    {
+      "id": 116,
+      "CatDesc": "APPLIANCES"
+    },
+    {
+      "id": 117,
+      "CatDesc": "OFFICE SUPPLIES"
+    },
+    {
+      "id": 119,
+      "CatDesc": "SAFETY EQUIPMENT"
+    },
+    {
+      "id": 120,
+      "CatDesc": "OFFICE DECORATION"
+    },
+    {
+      "id": 121,
+      "CatDesc": "OFFICE INSTALLATION"
+    },
+    {
+      "id": 122,
+      "CatDesc": "SHELVES"
+    },
+    {
+      "id": 123,
+      "CatDesc": "COMMUNICATION"
+    },
+    {
+      "id": 124,
+      "CatDesc": "TOOLS"
+    },
+    {
+      "id": 126,
+      "CatDesc": "MOBILE PHONE"
+    },
+    {
+      "id": 127,
+      "CatDesc": "OTHERS"
+    },
+    {
+      "id": 128,
+      "CatDesc": "LOG LOADER"
+    },
+    {
+      "id": 130,
+      "CatDesc": "GENSET"
+    },
+    {
+      "id": 131,
+      "CatDesc": "EXTERNAL HARD DRIVE"
+    },
+    {
+      "id": 134,
+      "CatDesc": "KEYBOARD"
+    },
+    {
+      "id": 135,
+      "CatDesc": "MOUSE"
+    },
+    {
+      "id": 136,
+      "CatDesc": "MONITOR"
+    },
+    {
+      "id": 137,
+      "CatDesc": "UPS"
+    },
+    {
+      "id": 138,
+      "CatDesc": "PRINTER"
+    },
+    {
+      "id": 139,
+      "CatDesc": "SCANNER"
+    },
+    {
+      "id": 141,
+      "CatDesc": "USB"
+    },
+    {
+      "id": 143,
+      "CatDesc": "IPAD"
+    },
+    {
+      "id": 145,
+      "CatDesc": "WATER TRUCK"
+    },
+    {
+      "id": 146,
+      "CatDesc": "BACKHOE"
+    },
+    {
+      "id": 147,
+      "CatDesc": "CAMERA"
+    },
+    {
+      "id": 148,
+      "CatDesc": "DIGITAL CAMERA"
+    },
+    {
+      "id": 151,
+      "CatDesc": "WIFI"
+    },
+    {
+      "id": 152,
+      "CatDesc": "COMMUNICATION EQUIPMENT"
+    },
+    {
+      "id": 153,
+      "CatDesc": "POWERBANK"
+    },
+    {
+      "id": 158,
+      "CatDesc": "ALL WEATHER BODY BAG"
+    },
+    {
+      "id": 160,
+      "CatDesc": "LAPTOP BATTERY"
+    },
+    {
+      "id": 162,
+      "CatDesc": "TELEPHONE"
+    },
+    {
+      "id": 165,
+      "CatDesc": "LAPTOP CHARGER"
+    },
+    {
+      "id": 166,
+      "CatDesc": "LAPTOP BAG"
+    },
+    {
+      "id": 167,
+      "CatDesc": "INTERNAL HARD DRIVE"
+    },
+    {
+      "id": 169,
+      "CatDesc": "EXTENSION OUTLET"
+    },
+    {
+      "id": 172,
+      "CatDesc": "LAPTOP MEMORY"
+    },
+    {
+      "id": 178,
+      "CatDesc": "ALCON"
+    },
+    {
+      "id": 180,
+      "CatDesc": "SWITCH HUB"
+    },
+    {
+      "id": 185,
+      "CatDesc": "HUSTLING TRUCK"
+    },
+    {
+      "id": 188,
+      "CatDesc": "EQUIPMENT"
+    },
+    {
+      "id": 189,
+      "CatDesc": "PROJECTOR"
+    },
+    {
+      "id": 195,
+      "CatDesc": "ANDROID TABLET"
+    }
+  ]
+}
