@@ -326,5 +326,65 @@
       "id": 195,
       "CatDesc": "ANDROID TABLET"
     }
+  ],
+  "Division": [
+    {
+      "DivCode": "OOCOB",
+      "DivName": "OFFICE OF THE CHAIRMAN OF THE BOARD/PRESIDENT & CEO"
+    },
+    {
+      "DivCode": "ADMIN",
+      "DivName": "ADMINISTRATION"
+    },
+    {
+      "DivCode": "INFTC",
+      "DivName": "INFORMATION & COMMUNICATIONS TECHNOLOGY"
+    },
+    {
+      "DivCode": "FNNCE",
+      "DivName": "FINANCE"
+    },
+    {
+      "DivCode": "HRLEG",
+      "DivName": "LEGAL & HUMAN RESOURCES"
+    },
+    {
+      "DivCode": "MKTNG",
+      "DivName": "MARKETING"
+    },
+    {
+      "DivCode": "OPTNS",
+      "DivName": "OPERATIONS"
+    },
+    {
+      "DivCode": "OOGM",
+      "DivName": "OFFICE OF THE GENERAL MANAGER"
+    }
+  ],
+  "Service": [
+    {
+      "DepCode": "ENGRG",
+      "DepName": "ENGINEERING"
+    },
+    {
+      "DepCode": "ITHNI",
+      "DepName": "ENTERPRISE SYSTEM DELIVERY"
+    },
+    {
+      "DepCode": "HUMRE",
+      "DepName": "HUMAN RESOURCE & ORGANIZATIONAL DEVELOPMENT"
+    },
+    {
+      "DepCode": "MATMA",
+      "DepName": "MATERIALS MANAGEMENT AND GENERAL SERVICES"
+    },
+    {
+      "DepCode": "MRPL",
+      "DepName": "MOTORPOOL SERVICES"
+    },
+    {
+      "DepCode": "PFMCS",
+      "DepName": "PORT FACILITIES & MAINTENANCE "
+    }
   ]
 }

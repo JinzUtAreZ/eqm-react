@@ -12,6 +12,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import StatSelect from './assetSelect/Status';
 import CatSelect from './assetSelect/Category';
+import SubCatSelect from './assetSelect/SubCategory';
+import DivisionSelect from './assetSelect/Division';
+import DeptSelect from './assetSelect/Department';
+import ServiceSelect from './assetSelect/Service';
 
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -35,12 +39,6 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1)
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    fullWidth: true,
-    display: 'flex'
   }
 }));
 
@@ -107,85 +105,24 @@ const AssetDataInfo = () => {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <StatSelect />
-            </FormControl>
+            <StatSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <CatSelect />
-            </FormControl>
+            <CatSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Asset SubCategory
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <SubCatSelect />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Division
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <DivisionSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Department
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <DeptSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>
@@ -241,26 +178,7 @@ const AssetDataInfo = () => {
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Service Department
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <ServiceSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>

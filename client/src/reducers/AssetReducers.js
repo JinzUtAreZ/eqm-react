@@ -5,7 +5,11 @@ import {
   SEARCH_ASSETLIST,
   CLEAR_ASSET,
   ASSET_STATUS,
-  ASSET_CATEGORY
+  ASSET_CATEGORY,
+  ASSET_DIVISION,
+  ASSET_SUB_CATEGORY,
+  ASSET_DEPARTMENT,
+  ASSET_SERVICE_DEPT
 } from '../types/Assettypes';
 
 const initialState = {
@@ -16,7 +20,11 @@ const initialState = {
   filtered: null,
   error: null,
   assetstatus: [],
-  assetcategory: []
+  assetcategory: [],
+  assetsubcat: [],
+  assetdiv: [],
+  assetdept: [],
+  assetservedept: []
 };
 
 export default (state = initialState, action) => {
@@ -66,7 +74,15 @@ export default (state = initialState, action) => {
       return { ...state, assetstatus: action.payload };
     case ASSET_CATEGORY:
       return { ...state, assetcategory: action.payload };
-    default:
+    case ASSET_SUB_CATEGORY:
+      return { ...state, assetsubcat: action.payload };
+    case ASSET_DIVISION:
+      return { ...state, assetdiv: action.payload };
+    case ASSET_DEPARTMENT:
+      return { ...state, assetdept: action.payload };
+    case ASSET_SERVICE_DEPT:
+      return { ...state, assetservedept: action.payload};
+      default:
       return state;
   }
 };

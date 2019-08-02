@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    fullWidth: true,
     display: 'flex'
   },
   selectEmpty: {
@@ -69,7 +68,7 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
             </MenuItem>
           ) : (
             <MenuItem key={index} value={stat.StatusID}>
-              <em>{stat.StatusDesc.toUpperCase()}</em>{' '}
+              <em>{stat.StatusDesc}</em>{' '}
             </MenuItem>
           )
         )}

@@ -1,13 +1,39 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 import { connect } from 'react-redux';
 import { getAssetCategory } from '../../../actions/AssetActions';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import { MenuItem } from '@material-ui/core';
 
-const Category = ({ asset: { assetcategory }, getAssetCategory }) => {
-  const [values, setValues] = useState('');
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    fullWidth: true,
+    display: 'flex'
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2)
+  }
+}));
+
+const SubCategory = ({ asset: { assetcategory }, getAssetCategory }) => {
+  const classes = useStyles();
+  const [values, setValues] = useState({});
+
+  const inputLabel = useRef(null);
+  const [labelWidth, setLabelWidth] = useState(0);
   useEffect(() => {
+    setLabelWidth(inputLabel.current.offsetWidth);
     getAssetCategory('Category');
     //eslint-disable-next-line
   }, []);
@@ -20,17 +46,20 @@ const Category = ({ asset: { assetcategory }, getAssetCategory }) => {
   };
 
   return (
-    <Fragment>
-      <InputLabel shrink htmlFor="status-simple">
+    <FormControl variant="outlined" className={classes.formControl}>
+      <InputLabel ref={inputLabel} htmlFor="outlined-category-simple">
         Asset Category
       </InputLabel>
       <Select
-        value={values.status}
+        value={values.category}
         onChange={handleChange}
-        inputProps={{
-          name: 'status',
-          id: 'status-simple'
-        }}
+        input={
+          <OutlinedInput
+            labelWidth={labelWidth}
+            name="category"
+            id="outlined-category-simple"
+          />
+        }
       >
         {assetcategory.map((category, index) =>
           index === 0 ? (
@@ -44,7 +73,8 @@ const Category = ({ asset: { assetcategory }, getAssetCategory }) => {
           )
         )}
       </Select>
-    </Fragment>
+      <FormHelperText>Please select a category</FormHelperText>
+    </FormControl>
   );
 };
 
@@ -55,4 +85,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getAssetCategory }
-)(Category);
+)(SubCategory);

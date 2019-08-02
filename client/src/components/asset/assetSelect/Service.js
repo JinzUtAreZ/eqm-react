@@ -1,14 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
 import { connect } from 'react-redux';
-import { getAssetStatus } from '../../../actions/AssetActions';
+import { getServiceDept } from '../../../actions/AssetActions';
+import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,7 +14,6 @@ const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    fullWidth: true,
     display: 'flex'
   },
   selectEmpty: {
@@ -26,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
+const Division = ({ asset: { assetservedept }, getServiceDept }) => {
   const classes = useStyles();
   const [values, setValues] = useState({});
 
@@ -35,7 +30,8 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
 
   useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
-    getAssetStatus('Status');
+    getServiceDept('Service');
+
     //eslint-disable-next-line
   }, []);
 
@@ -48,33 +44,32 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
 
   return (
     <FormControl variant="outlined" className={classes.formControl}>
-      <InputLabel ref={inputLabel} htmlFor="outlined-status-simple">
-        Asset Status
+      <InputLabel ref={inputLabel} htmlFor="outline-servedept-simple">
+        Service Department
       </InputLabel>
       <Select
-        value={values.status}
+        value={values.servedept}
         onChange={handleChange}
         input={
           <OutlinedInput
             labelWidth={labelWidth}
-            name="status"
-            id="outlined-status-simple"
+            name="servedept"
+            id="outlined-servedept-simple"
           />
         }
       >
-        {assetstatus.map((stat, index) =>
+        {assetservedept.map((stat, index) =>
           index === 0 ? (
             <MenuItem key={index} value="" disabled>
-              <em>{'Please Select'}</em>{' '}
+              <em>Please Select</em>
             </MenuItem>
           ) : (
-            <MenuItem key={index} value={stat.StatusID}>
-              <em>{stat.StatusDesc.toUpperCase()}</em>{' '}
+            <MenuItem key={index} value={stat.DepCode}>
+              <em>{stat.DepName}</em>
             </MenuItem>
           )
         )}
       </Select>
-      <FormHelperText>Please select a status</FormHelperText>
     </FormControl>
   );
 };
@@ -85,5 +80,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssetStatus }
-)(Status);
+  { getServiceDept }
+)(Division);

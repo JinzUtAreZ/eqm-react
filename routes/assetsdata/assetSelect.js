@@ -14,11 +14,13 @@ router.get('/:seltype', (req, res) => {
   } else if (seltype == 'Category') {
     proctype = 'spLoad_AssetCat_React';
   } else if (seltype == 'SubCategory') {
-    proctype = 'spLoad_AssetCat_React';
+    proctype = 'spLoad_AssetSubCat_React';
   } else if (seltype == 'Division') {
-    proctype = 'spLoad_AssetCat_React';
+    proctype = 'spLoad_AssetDivision_React';
   } else if (seltype == 'Department') {
     proctype = 'spLoad_AssetCat_React';
+  } else if (seltype == 'Service') {
+    proctype = 'spLoad_AssetService_React';
   }
 
   try {

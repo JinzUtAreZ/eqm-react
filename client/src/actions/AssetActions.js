@@ -5,7 +5,9 @@ import {
   ASSET_ERROR,
   CLEAR_ASSET,
   ASSET_STATUS,
-  ASSET_CATEGORY
+  ASSET_CATEGORY,
+  ASSET_DIVISION,
+  ASSET_SERVICE_DEPT
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -100,5 +102,35 @@ export const getAssetCategory = seltype => async dispatch => {
       type: ASSET_ERROR,
       payload: err.message.statusText
     });
+  }
+};
+
+export const getDivision = seltype => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}`);
+    const data = await res.json();
+
+    dispatch({ type: ASSET_DIVISION, payload: data });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
+export const getServiceDept = seltype => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}`);
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_SERVICE_DEPT,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({ type: ASSET_ERROR, payload: err.response.statusText });
   }
 };
