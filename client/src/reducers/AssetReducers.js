@@ -9,7 +9,8 @@ import {
   ASSET_DIVISION,
   ASSET_SUB_CATEGORY,
   ASSET_DEPARTMENT,
-  ASSET_SERVICE_DEPT
+  ASSET_SERVICE_DEPT,
+  ASSET_MAINTE_TYPE
 } from '../types/Assettypes';
 
 const initialState = {
@@ -24,7 +25,8 @@ const initialState = {
   assetsubcat: [],
   assetdiv: [],
   assetdept: [],
-  assetservedept: []
+  assetservedept: [],
+  assetmainte: []
 };
 
 export default (state = initialState, action) => {
@@ -81,8 +83,10 @@ export default (state = initialState, action) => {
     case ASSET_DEPARTMENT:
       return { ...state, assetdept: action.payload };
     case ASSET_SERVICE_DEPT:
-      return { ...state, assetservedept: action.payload};
-      default:
+      return { ...state, assetservedept: action.payload };
+    case ASSET_MAINTE_TYPE:
+      return { ...state, assetmainte: action.payload };
+    default:
       return state;
   }
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
-import { getDivision } from '../../../actions/AssetActions';
+import { getDivision, getDepartment } from '../../../actions/AssetActions';
 import { FormControl, InputLabel, MenuItem } from '@material-ui/core';
 import Select from '@material-ui/core/Select';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Division = ({ asset: { assetdiv }, getDivision }) => {
+const Division = ({ asset: { assetdiv }, getDivision, getDepartment }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ div: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
@@ -40,6 +40,7 @@ const Division = ({ asset: { assetdiv }, getDivision }) => {
       ...oldValues,
       [event.target.name]: event.target.value
     }));
+    getDepartment('Department', event.target.value);
   };
 
   return (
@@ -58,17 +59,11 @@ const Division = ({ asset: { assetdiv }, getDivision }) => {
           />
         }
       >
-        {assetdiv.map((stat, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>Please Select</em>
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={stat.DivCode}>
-              <em>{stat.DivName}</em>
-            </MenuItem>
-          )
-        )}
+        {assetdiv.map((div, index) => (
+          <MenuItem key={index} value={div.DivCode}>
+            <em>{div.DivName}</em>
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );
@@ -80,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getDivision }
+  { getDivision, getDepartment }
 )(Division);

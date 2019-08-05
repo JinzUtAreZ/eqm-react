@@ -16,6 +16,7 @@ import SubCatSelect from './assetSelect/SubCategory';
 import DivisionSelect from './assetSelect/Division';
 import DeptSelect from './assetSelect/Department';
 import ServiceSelect from './assetSelect/Service';
+import MaintSelect from './assetSelect/Maintenance';
 
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -182,26 +183,7 @@ const AssetDataInfo = () => {
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Maintenance Type
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <MaintSelect />
           </Grid>
         </Grid>
       </Paper>

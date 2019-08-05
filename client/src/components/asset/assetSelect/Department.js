@@ -19,17 +19,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Department = ({ asset: { assetdiv }, getDivision }) => {
+const Department = ({ asset: { assetdept }, getDivision }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ dept: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWitdh] = useState(0);
 
   useEffect(() => {
     setLabelWitdh(inputLabel.current.offsetWidth);
-    getDivision('Division');
-    // eslint-disable-next-line
   }, []);
 
   const handleChange = event => {
@@ -55,17 +53,11 @@ const Department = ({ asset: { assetdiv }, getDivision }) => {
           />
         }
       >
-        {assetdiv.map((stat, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>Please Select</em>
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={stat.DivCode}>
-              <em>{stat.DivName}</em>
-            </MenuItem>
-          )
-        )}
+        {assetdept.map((dept, index) => (
+          <MenuItem key={index} value={dept.DepCode}>
+            <em>{dept.DepName}</em>
+          </MenuItem>
+        ))}
       </Select>
       <FormHelperText>Please select a department</FormHelperText>
     </FormControl>

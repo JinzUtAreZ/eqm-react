@@ -56,7 +56,7 @@ const AssetDataProd = () => {
       <Paper className={classes.paper}>
         {' '}
         <h3>PRODUCT INFORMATION</h3>
-        <Grid container spacing={3}>
+        {/* <Grid container spacing={3}>
           <Grid item xs={3} sm={3} md>
             <FormControl className={classes.formControl}>
               <InputLabel shrink htmlFor="age-label-placeholder">
@@ -181,7 +181,7 @@ const AssetDataProd = () => {
               />
             </MuiPickersUtilsProvider>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Paper>
     </div>
   );

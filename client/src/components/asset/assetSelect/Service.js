@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const Division = ({ asset: { assetservedept }, getServiceDept }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ service: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
@@ -48,7 +48,7 @@ const Division = ({ asset: { assetservedept }, getServiceDept }) => {
         Service Department
       </InputLabel>
       <Select
-        value={values.servedept}
+        value={values.service}
         onChange={handleChange}
         input={
           <OutlinedInput
@@ -58,17 +58,11 @@ const Division = ({ asset: { assetservedept }, getServiceDept }) => {
           />
         }
       >
-        {assetservedept.map((stat, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>Please Select</em>
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={stat.DepCode}>
-              <em>{stat.DepName}</em>
-            </MenuItem>
-          )
-        )}
+        {assetservedept.map((service, index) => (
+          <MenuItem key={index} value={service.DepCode}>
+            <em>{service.DepName}</em>
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

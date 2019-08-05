@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ status: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
@@ -62,17 +62,11 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
           />
         }
       >
-        {assetstatus.map((stat, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>{'Please Select'}</em>{' '}
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={stat.StatusID}>
-              <em>{stat.StatusDesc.toUpperCase()}</em>{' '}
-            </MenuItem>
-          )
-        )}
+        {assetstatus.map((stat, index) => (
+          <MenuItem key={index} value={stat.StatusID}>
+            <em>{stat.StatusDesc.toUpperCase()}</em>{' '}
+          </MenuItem>
+        ))}
       </Select>
       <FormHelperText>Please select a status</FormHelperText>
     </FormControl>

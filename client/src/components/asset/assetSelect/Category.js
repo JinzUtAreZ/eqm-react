@@ -8,7 +8,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import { connect } from 'react-redux';
-import { getAssetCategory } from '../../../actions/AssetActions';
+import {
+  getAssetCategory,
+  getAssetSubCategory
+} from '../../../actions/AssetActions';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,9 +29,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SubCategory = ({ asset: { assetcategory }, getAssetCategory }) => {
+const Category = ({
+  asset: { assetcategory },
+  getAssetCategory,
+  getAssetSubCategory
+}) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ category: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
@@ -43,6 +50,8 @@ const SubCategory = ({ asset: { assetcategory }, getAssetCategory }) => {
       ...oldValues,
       [event.target.name]: event.target.value
     }));
+    //console.log(event.target.value);
+    getAssetSubCategory('SubCategory', event.target.value);
   };
 
   return (
@@ -61,17 +70,11 @@ const SubCategory = ({ asset: { assetcategory }, getAssetCategory }) => {
           />
         }
       >
-        {assetcategory.map((category, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>{'Please Select'}</em>
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={category.id}>
-              <em>{category.CatDesc}</em>
-            </MenuItem>
-          )
-        )}
+        {assetcategory.map((category, index) => (
+          <MenuItem key={index} value={category.id}>
+            <em>{category.CatDesc}</em>
+          </MenuItem>
+        ))}
       </Select>
       <FormHelperText>Please select a category</FormHelperText>
     </FormControl>
@@ -84,5 +87,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssetCategory }
-)(SubCategory);
+  { getAssetCategory, getAssetSubCategory }
+)(Category);

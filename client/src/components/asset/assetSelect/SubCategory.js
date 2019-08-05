@@ -25,17 +25,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
+const SubCategory = ({ asset: { assetsubcat } }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({ subcat: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
 
   useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
-    getAssetStatus('Status');
-    //eslint-disable-next-line
   }, []);
 
   const handleChange = event => {
@@ -47,33 +45,27 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
 
   return (
     <FormControl variant="outlined" className={classes.formControl}>
-      <InputLabel ref={inputLabel} htmlFor="outlined-status-simple">
-        Asset Status
+      <InputLabel ref={inputLabel} htmlFor="outlined-subcat-simple">
+        SubCategory
       </InputLabel>
       <Select
-        value={values.status}
+        value={values.subcat}
         onChange={handleChange}
         input={
           <OutlinedInput
             labelWidth={labelWidth}
-            name="status"
-            id="outlined-status-simple"
+            name="subcat"
+            id="outlined-subcat-simple"
           />
         }
       >
-        {assetstatus.map((stat, index) =>
-          index === 0 ? (
-            <MenuItem key={index} value="" disabled>
-              <em>{'Please Select'}</em>{' '}
-            </MenuItem>
-          ) : (
-            <MenuItem key={index} value={stat.StatusID}>
-              <em>{stat.StatusDesc}</em>{' '}
-            </MenuItem>
-          )
-        )}
+        {assetsubcat.map((subcat, index) => (
+          <MenuItem key={index} value={subcat.SubCatID}>
+            <em>{subcat.SubCatDesc}</em>{' '}
+          </MenuItem>
+        ))}
       </Select>
-      <FormHelperText>Please select a status</FormHelperText>
+      <FormHelperText>Please select a subcategory</FormHelperText>
     </FormControl>
   );
 };
@@ -85,4 +77,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getAssetStatus }
-)(Status);
+)(SubCategory);

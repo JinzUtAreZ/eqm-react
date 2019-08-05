@@ -7,7 +7,10 @@ import {
   ASSET_STATUS,
   ASSET_CATEGORY,
   ASSET_DIVISION,
-  ASSET_SERVICE_DEPT
+  ASSET_SERVICE_DEPT,
+  ASSET_MAINTE_TYPE,
+  ASSET_DEPARTMENT,
+  ASSET_SUB_CATEGORY
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -105,12 +108,46 @@ export const getAssetCategory = seltype => async dispatch => {
   }
 };
 
+export const getAssetSubCategory = (seltype, userselect) => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}/${userselect}`);
+    const data = await res.json();
+    dispatch({
+      type: ASSET_SUB_CATEGORY,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
 export const getDivision = seltype => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}`);
     const data = await res.json();
 
     dispatch({ type: ASSET_DIVISION, payload: data });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
+export const getDepartment = (seltype, userselect) => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}/${userselect}`);
+    const data = await res.json();
+    dispatch({
+      type: ASSET_DEPARTMENT,
+      payload: data
+    });
   } catch (err) {
     console.error(err.message);
     dispatch({
@@ -132,5 +169,23 @@ export const getServiceDept = seltype => async dispatch => {
   } catch (err) {
     console.error(err.message);
     dispatch({ type: ASSET_ERROR, payload: err.response.statusText });
+  }
+};
+
+export const getAssetMaintenance = seltype => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}`);
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_MAINTE_TYPE,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
   }
 };
