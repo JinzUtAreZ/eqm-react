@@ -18,6 +18,8 @@ import Navbar from './NavbarHeader';
 import Button from '@material-ui/core/Button';
 
 import AppSide from './AppbarSidebar';
+import { connect } from 'react-redux';
+import { setMenuOpenClose } from '../../actions/AssetActions';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -76,7 +78,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Appbar() {
+const Appbar = ({ setMenuOpenClose }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -84,6 +86,7 @@ export default function Appbar() {
 
   function handleDrawerOpen() {
     setOpen(true);
+    setMenuOpenClose(true); // dinugtong ko sa redux para makita ung state
   }
 
   const isMenuOpen = Boolean(anchorEl);
@@ -254,4 +257,9 @@ export default function Appbar() {
       {renderMenu}
     </div>
   );
-}
+};
+
+export default connect(
+  null,
+  { setMenuOpenClose }
+)(Appbar);

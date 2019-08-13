@@ -10,7 +10,10 @@ import {
   ASSET_SERVICE_DEPT,
   ASSET_MAINTE_TYPE,
   ASSET_DEPARTMENT,
-  ASSET_SUB_CATEGORY
+  ASSET_SUB_CATEGORY,
+  ASSET_CUSTODIAN,
+  SET_SIDEBAR_MENU,
+  ASSET_SAVE
 } from '../types/Assettypes';
 
 /// load asset list per user ///
@@ -37,13 +40,6 @@ export const getAssetList = () => async dispatch => {
     });
   }
 };
-//// set loading icon while retrieving data ////
-
-export const setLoading = () => {
-  return {
-    type: SET_LOADING
-  };
-};
 
 //// Search asset columns in asset list ////
 
@@ -66,12 +62,14 @@ export const searchAssetList = text => dispatch => {
   }
 };
 
+///// Clear state of asset when input is blank ////
 export const clearAssetFilter = () => {
   return {
     type: CLEAR_ASSET
   };
 };
 
+///// Load Asset Staus //////
 export const getAssetStatus = seltype => async dispatch => {
   try {
     setLoading();
@@ -90,6 +88,7 @@ export const getAssetStatus = seltype => async dispatch => {
   }
 };
 
+////// Load category //////
 export const getAssetCategory = seltype => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}`);
@@ -108,6 +107,7 @@ export const getAssetCategory = seltype => async dispatch => {
   }
 };
 
+////// Load Subcategory triggered by Category //////
 export const getAssetSubCategory = (seltype, userselect) => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}/${userselect}`);
@@ -125,6 +125,7 @@ export const getAssetSubCategory = (seltype, userselect) => async dispatch => {
   }
 };
 
+////// Load Division /////
 export const getDivision = seltype => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}`);
@@ -140,6 +141,7 @@ export const getDivision = seltype => async dispatch => {
   }
 };
 
+///// Load Department triggered by Division dropdown /////
 export const getDepartment = (seltype, userselect) => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}/${userselect}`);
@@ -157,6 +159,26 @@ export const getDepartment = (seltype, userselect) => async dispatch => {
   }
 };
 
+///// Load Custodian triggered by Department dropdown /////
+export const getCustodian = (seltype, userselect) => async dispatch => {
+  try {
+    const res = await fetch(`/api/assetSelect/${seltype}/${userselect}`);
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_CUSTODIAN,
+      payload: data
+    });
+  } catch (err) {
+    console.err(err.message);
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
+//// Load service department /////
 export const getServiceDept = seltype => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}`);
@@ -172,6 +194,7 @@ export const getServiceDept = seltype => async dispatch => {
   }
 };
 
+///// Load Asset maintenance dropdown
 export const getAssetMaintenance = seltype => async dispatch => {
   try {
     const res = await fetch(`/api/assetSelect/${seltype}`);
@@ -188,4 +211,54 @@ export const getAssetMaintenance = seltype => async dispatch => {
       payload: err.response.statusText
     });
   }
+};
+
+export const SaveAssetInfo = assetdata => async dispatch => {
+  try {
+    setLoading();
+    const res = await fetch('/api/assetSelect/', {
+      method: 'POST',
+      body: JSON.stringify(assetdata),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await res.json();
+
+    dispatch({
+      type: ASSET_SAVE,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message, 'Save Asset Error');
+    dispatch({
+      type: ASSET_ERROR,
+      payload: err.response.statusText
+    });
+  }
+};
+
+//// set loading icon while retrieving data ////
+
+export const setLoading = () => {
+  return {
+    type: SET_LOADING
+  };
+};
+
+//// set sidebar open close //// d pa tapos to aayusin pa
+export const setMenuOpenClose = () => {
+  return {
+    type: SET_SIDEBAR_MENU
+  };
+};
+
+//// set loading icon while retrieving data ////
+
+export const setAssetSaveParam = assetdata => {
+  return {
+    type: ASSET_SAVE,
+    payload: assetdata
+  };
 };

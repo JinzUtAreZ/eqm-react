@@ -1,11 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  FormHelperText,
+  OutlinedInput,
+  MenuItem
+} from '@material-ui/core';
 import { connect } from 'react-redux';
 import { getCustodian } from '../../../actions/AssetActions';
-import { FormControl, InputLabel, OutlinedInput } from '@material-ui/core';
-import Select from '@material-ui/core/Select';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,15 +23,15 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Department = ({ asset: { assetdept }, getCustodian }) => {
+const Custodian = ({ asset: { assetcustodian }, getCustodian }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({ dept: '' });
+  const [values, setValues] = useState({ cust: '' });
 
   const inputLabel = useRef(null);
-  const [labelWidth, setLabelWitdh] = useState(0);
+  const [labelWidth, setLabelWidth] = useState(0);
 
   useEffect(() => {
-    setLabelWitdh(inputLabel.current.offsetWidth);
+    setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
   const handleChange = event => {
@@ -35,32 +39,31 @@ const Department = ({ asset: { assetdept }, getCustodian }) => {
       ...oldValues,
       [event.target.name]: event.target.value
     }));
-    getCustodian('Custodian', event.target.value);
   };
 
   return (
     <FormControl variant="outlined" className={classes.formControl}>
-      <InputLabel ref={inputLabel} htmlFor="outlined-dept-simple">
-        Department
+      <InputLabel ref={inputLabel} htmlFor="outlined-cust-simple">
+        Custodian
       </InputLabel>
       <Select
-        value={values.dept}
+        value={values.cust}
         onChange={handleChange}
         input={
           <OutlinedInput
             labelWidth={labelWidth}
-            name="dept"
-            id="outlined-dept-simple"
+            name="cust"
+            id="outlined-cust-simple"
           />
         }
       >
-        {assetdept.map((dept, index) => (
-          <MenuItem key={index} value={dept.DepCode}>
-            <em>{dept.DepName}</em>
+        {assetcustodian.map((cust, index) => (
+          <MenuItem key={index} value={cust.UserID}>
+            {cust.Name}
           </MenuItem>
         ))}
       </Select>
-      <FormHelperText>Please select a department</FormHelperText>
+      <FormHelperText>Please select a Custodian</FormHelperText>
     </FormControl>
   );
 };
@@ -72,4 +75,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getCustodian }
-)(Department);
+)(Custodian);

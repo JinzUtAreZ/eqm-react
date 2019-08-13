@@ -4,12 +4,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 
-import Input from '@material-ui/core/Input';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-
 import StatSelect from './assetSelect/Status';
 import CatSelect from './assetSelect/Category';
 import SubCatSelect from './assetSelect/SubCategory';
@@ -17,6 +11,8 @@ import DivisionSelect from './assetSelect/Division';
 import DeptSelect from './assetSelect/Department';
 import ServiceSelect from './assetSelect/Service';
 import MaintSelect from './assetSelect/Maintenance';
+import CustSelect from './assetSelect/Custodian';
+import AssetDataButtons from './AssetDataButtons';
 
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -40,6 +36,9 @@ const useStyles = makeStyles(theme => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1)
+  },
+  dateField: {
+    marginLeft: theme.spacing(2)
   }
 }));
 
@@ -78,6 +77,7 @@ const AssetDataInfo = () => {
               variant="outlined"
               fullWidth
             />
+            <CatSelect />
           </Grid>
           <Grid item xs={4} sm={3} md>
             <TextField
@@ -89,6 +89,7 @@ const AssetDataInfo = () => {
               variant="outlined"
               fullWidth
             />
+            <SubCatSelect />
           </Grid>
           <Grid item xs={4} sm={3} md>
             <TextField
@@ -96,7 +97,7 @@ const AssetDataInfo = () => {
               label="Asset Description"
               className={classes.textField}
               multiline
-              rows="4"
+              rows="6"
               onChange={handleChange('name')}
               margin="normal"
               variant="outlined"
@@ -110,11 +111,11 @@ const AssetDataInfo = () => {
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <CatSelect />
+            <MaintSelect />
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <SubCatSelect />
+            <ServiceSelect />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
@@ -127,26 +128,7 @@ const AssetDataInfo = () => {
           </Grid>
 
           <Grid item xs={4} sm={3} md>
-            <FormControl className={classes.formControl}>
-              <InputLabel shrink htmlFor="age-label-placeholder">
-                Custodian
-              </InputLabel>
-              <Select
-                value={values.age}
-                onChange={handleChange}
-                input={<Input name="age" id="age-label-placeholder" />}
-                displayEmpty
-                name="age"
-                className={classes.selectEmpty}
-              >
-                <MenuItem value="">
-                  <em>Please Select</em>
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
+            <CustSelect />
           </Grid>
         </Grid>
         <Grid container spacing={3}>
@@ -156,6 +138,7 @@ const AssetDataInfo = () => {
             </InputLabel> */}
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <KeyboardDatePicker
+                className={classes.dateField}
                 margin="normal"
                 id="mui-pickers-date"
                 label="Warranty Date"
@@ -177,16 +160,33 @@ const AssetDataInfo = () => {
               /> */}
             </MuiPickersUtilsProvider>
           </Grid>
-
           <Grid item xs={4} sm={3} md>
-            <ServiceSelect />
+            <TextField
+              id="outline-tag"
+              label="Asset Tag Name"
+              className={classes.textField}
+              onChange={handleChange('name')}
+              margin="normal"
+              variant="outlined"
+              fullWidth
+            />
           </Grid>
-
           <Grid item xs={4} sm={3} md>
-            <MaintSelect />
+            <TextField
+              id="outline-notes"
+              label="Asset Notes"
+              className={classes.textField}
+              onChange={handleChange('name')}
+              multiline
+              rows="4"
+              margin="normal"
+              variant="outlined"
+              fullWidth
+            />
           </Grid>
         </Grid>
       </Paper>
+      <AssetDataButtons />
     </div>
   );
 };

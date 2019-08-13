@@ -10,7 +10,8 @@ import Select from '@material-ui/core/Select';
 import { connect } from 'react-redux';
 import {
   getAssetCategory,
-  getAssetSubCategory
+  getAssetSubCategory,
+  setAssetSaveParam
 } from '../../../actions/AssetActions';
 
 const useStyles = makeStyles(theme => ({
@@ -30,9 +31,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Category = ({
-  asset: { assetcategory },
+  asset: { assetcategory, assetsave },
   getAssetCategory,
-  getAssetSubCategory
+  getAssetSubCategory,
+  setAssetSaveParam
 }) => {
   const classes = useStyles();
   const [values, setValues] = useState({ category: '' });
@@ -52,6 +54,7 @@ const Category = ({
     }));
     //console.log(event.target.value);
     getAssetSubCategory('SubCategory', event.target.value);
+    setAssetSaveParam({ catselect: event.target.value });
   };
 
   return (
@@ -87,5 +90,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssetCategory, getAssetSubCategory }
+  { getAssetCategory, getAssetSubCategory, setAssetSaveParam }
 )(Category);

@@ -10,7 +10,10 @@ import {
   ASSET_SUB_CATEGORY,
   ASSET_DEPARTMENT,
   ASSET_SERVICE_DEPT,
-  ASSET_MAINTE_TYPE
+  ASSET_MAINTE_TYPE,
+  ASSET_CUSTODIAN,
+  SET_SIDEBAR_MENU,
+  ASSET_SAVE
 } from '../types/Assettypes';
 
 const initialState = {
@@ -26,7 +29,10 @@ const initialState = {
   assetdiv: [],
   assetdept: [],
   assetservedept: [],
-  assetmainte: []
+  assetmainte: [],
+  assetcustodian: [],
+  opencloseMenu: false,
+  assetsave: { statselect: '', catselect: '' }
 };
 
 export default (state = initialState, action) => {
@@ -86,6 +92,58 @@ export default (state = initialState, action) => {
       return { ...state, assetservedept: action.payload };
     case ASSET_MAINTE_TYPE:
       return { ...state, assetmainte: action.payload };
+    case ASSET_CUSTODIAN:
+      return { ...state, assetcustodian: action.payload };
+    case SET_SIDEBAR_MENU:
+      return { ...state, opencloseMenu: true }; // para sa appsidebarmenu eto aayusin pa
+    case ASSET_SAVE:
+      console.log(action.payload);
+      const catkey =
+        action.payload.catselect === undefined ? '' : action.payload.catselect;
+      const statkey =
+        action.payload.statselect === undefined
+          ? ''
+          : action.payload.statselect;
+      //// checker ko ng data to /////
+      const dataset = {
+        ...state,
+        assetsave: {
+          catselect:
+            catkey !== ''
+              ? state.assetsave.catselect === catkey
+                ? state.assetsave.catselect
+                : catkey
+              : state.assetsave.catselect,
+          statselect:
+            statkey !== ''
+              ? state.assetsave.statselect === statkey
+                ? state.assetsave.statselect
+                : statkey
+              : state.assetsave.statselect
+        }
+      };
+
+      //// checker ko ng data to /////
+      console.log(dataset);
+
+      return {
+        ...state,
+        assetsave: {
+          catselect:
+            catkey !== ''
+              ? state.assetsave.catselect === catkey
+                ? state.assetsave.catselect
+                : catkey
+              : state.assetsave.catselect,
+          statselect:
+            statkey !== ''
+              ? state.assetsave.statselect === statkey
+                ? state.assetsave.statselect
+                : statkey
+              : state.assetsave.statselect
+        }
+      };
+
     default:
       return state;
   }

@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Division = ({ asset: { assetservedept }, getServiceDept }) => {
+const Service = ({ asset: { assetservedept }, getServiceDept }) => {
   const classes = useStyles();
-  const [values, setValues] = useState({ service: '' });
+  const [values, setValues] = useState({ servedept: '' });
 
   const inputLabel = useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
@@ -48,7 +48,7 @@ const Division = ({ asset: { assetservedept }, getServiceDept }) => {
         Service Department
       </InputLabel>
       <Select
-        value={values.service}
+        value={values.servedept}
         onChange={handleChange}
         input={
           <OutlinedInput
@@ -58,9 +58,9 @@ const Division = ({ asset: { assetservedept }, getServiceDept }) => {
           />
         }
       >
-        {assetservedept.map((service, index) => (
-          <MenuItem key={index} value={service.DepCode}>
-            <em>{service.DepName}</em>
+        {assetservedept.map((servedept, index) => (
+          <MenuItem key={index} value={servedept.DepCode}>
+            <em>{servedept.DepName}</em>
           </MenuItem>
         ))}
       </Select>
@@ -75,4 +75,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getServiceDept }
-)(Division);
+)(Service);

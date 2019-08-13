@@ -13,8 +13,8 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="container">
-          {/* <AppBar /> */}
-          <SideBar />
+          <AppBar />
+          {/* <SideBar /> */}
         </div>
       </Router>
     </Provider>

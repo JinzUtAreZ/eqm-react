@@ -1,4 +1,42 @@
 {
+  "Category": [
+    {
+      "id": 0,
+      "CatDesc": "N/A"
+    },
+    {
+      "id": 80,
+      "CatDesc": "BUILDING AND FACILITY"
+    },
+    {
+      "id": 81,
+      "CatDesc": "ICT EQUIPMENTS"
+    },
+    {
+      "id": 82,
+      "CatDesc": "OFFICE FURNITURE AND EQUIPMENT"
+    },
+    {
+      "id": 83,
+      "CatDesc": "TRANSPORTATION EQUIPMENT"
+    },
+    {
+      "id": 84,
+      "CatDesc": "HANDLING PORT EQUIPMENTS"
+    },
+    {
+      "id": 127,
+      "CatDesc": "OTHERS"
+    },
+    {
+      "id": 147,
+      "CatDesc": "CAMERA"
+    },
+    {
+      "id": 152,
+      "CatDesc": "COMMUNICATION EQUIPMENT"
+    }
+  ],
   "Status": [
     {
       "StatusID": 60,
@@ -61,72 +99,18 @@
       "StatusDesc": "Deleted"
     }
   ],
-  "Category": [
+  "Maintenance": [
     {
-      "id": 80,
-      "CatDesc": "BUILDING AND FACILITY"
+      "MainteID": 23,
+      "MainteDesc": "In House"
     },
     {
-      "id": 81,
-      "CatDesc": "ICT EQUIPMENTS"
+      "MainteID": 24,
+      "MainteDesc": "Third Party"
     },
     {
-      "id": 82,
-      "CatDesc": "OFFICE FURNITURE AND EQUIPMENT"
-    },
-    {
-      "id": 83,
-      "CatDesc": "TRANSPORTATION EQUIPMENT"
-    },
-    {
-      "id": 84,
-      "CatDesc": "HANDLING PORT EQUIPMENTS"
-    },
-    {
-      "id": 127,
-      "CatDesc": "OTHERS"
-    },
-    {
-      "id": 147,
-      "CatDesc": "CAMERA"
-    },
-    {
-      "id": 152,
-      "CatDesc": "COMMUNICATION EQUIPMENT"
-    }
-  ],
-  "Division": [
-    {
-      "DivCode": "OOCOB",
-      "DivName": "OFFICE OF THE CHAIRMAN OF THE BOARD/PRESIDENT & CEO"
-    },
-    {
-      "DivCode": "ADMIN",
-      "DivName": "ADMINISTRATION"
-    },
-    {
-      "DivCode": "INFTC",
-      "DivName": "INFORMATION & COMMUNICATIONS TECHNOLOGY"
-    },
-    {
-      "DivCode": "FNNCE",
-      "DivName": "FINANCE"
-    },
-    {
-      "DivCode": "HRLEG",
-      "DivName": "LEGAL & HUMAN RESOURCES"
-    },
-    {
-      "DivCode": "MKTNG",
-      "DivName": "MARKETING"
-    },
-    {
-      "DivCode": "OPTNS",
-      "DivName": "OPERATIONS"
-    },
-    {
-      "DivCode": "OOGM",
-      "DivName": "OFFICE OF THE GENERAL MANAGER"
+      "MainteID": 33,
+      "MainteDesc": ""
     }
   ],
   "Service": [
@@ -171,18 +155,42 @@
       "DepName": "PROJECT MANAGEMENT"
     }
   ],
-  "Maintenance": [
+  "Division": [
     {
-      "MainteID": 23,
-      "MainteDesc": "In House"
+      "DivCode": "0",
+      "DivName": "N/A"
     },
     {
-      "MainteID": 24,
-      "MainteDesc": "Third Party"
+      "DivCode": "ADMIN",
+      "DivName": "ADMINISTRATION"
     },
     {
-      "MainteID": 33,
-      "MainteDesc": ""
+      "DivCode": "FNNCE",
+      "DivName": "FINANCE"
+    },
+    {
+      "DivCode": "HRLEG",
+      "DivName": "LEGAL & HUMAN RESOURCES"
+    },
+    {
+      "DivCode": "INFTC",
+      "DivName": "INFORMATION & COMMUNICATIONS TECHNOLOGY"
+    },
+    {
+      "DivCode": "MKTNG",
+      "DivName": "MARKETING"
+    },
+    {
+      "DivCode": "OOCOB",
+      "DivName": "OFFICE OF THE CHAIRMAN OF THE BOARD/PRESIDENT & CEO"
+    },
+    {
+      "DivCode": "OOGM",
+      "DivName": "OFFICE OF THE GENERAL MANAGER"
+    },
+    {
+      "DivCode": "OPTNS",
+      "DivName": "OPERATIONS"
     }
   ]
 }

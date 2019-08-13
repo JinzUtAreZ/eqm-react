@@ -20,6 +20,8 @@ import ContactUs from '../pages/ContactUs';
 import AssetList from '../asset/Assetlist';
 import AssetData from '../asset/AssetData';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setMenuOpenClose } from '../../actions/AssetActions';
 
 const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
@@ -65,7 +67,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AppbarSidebar = () => {
+const AppbarSidebar = ({ setMenuOpenClose }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -83,6 +85,7 @@ const AppbarSidebar = () => {
 
   function handleDrawerClose() {
     setOpen(false);
+    setMenuOpenClose(false); // dinugtong ko sa redux para makita ung state
   }
   return (
     <div className={classes.root}>
@@ -179,4 +182,7 @@ const AppbarSidebar = () => {
   );
 };
 
-export default AppbarSidebar;
+export default connect(
+  null,
+  { setMenuOpenClose }
+)(AppbarSidebar);

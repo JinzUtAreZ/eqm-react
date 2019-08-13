@@ -8,7 +8,10 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
 import { connect } from 'react-redux';
-import { getAssetStatus } from '../../../actions/AssetActions';
+import {
+  getAssetStatus,
+  setAssetSaveParam
+} from '../../../actions/AssetActions';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,7 +29,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
+const Status = ({
+  asset: { assetstatus, assetsave },
+  getAssetStatus,
+  setAssetSaveParam
+}) => {
   const classes = useStyles();
   const [values, setValues] = useState({ status: '' });
 
@@ -44,6 +51,7 @@ const Status = ({ asset: { assetstatus }, getAssetStatus }) => {
       ...oldValues,
       [event.target.name]: event.target.value
     }));
+    setAssetSaveParam({ statselect: event.target.value });
   };
 
   return (
@@ -79,5 +87,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAssetStatus }
+  { getAssetStatus, setAssetSaveParam }
 )(Status);

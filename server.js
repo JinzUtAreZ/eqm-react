@@ -6,6 +6,7 @@ const connect = require('./connection/connectdb');
 app.use('/api/users', require('./routes/users'));
 app.use('/api/assets', require('./routes/assetsdata/asset'));
 app.use('/api/assetSelect', require('./routes/assetsdata/assetSelect'));
+app.use('/api/assetTrans', require('./routes/assetsdata/assetTrans'));
 
 //// established connection //
 app.listen(connect.port(), function() {
