@@ -21,6 +21,10 @@ import {
   KeyboardDatePicker
 } from '@material-ui/pickers';
 
+import { connect } from 'react-redux';
+import { setAssetSaveParam } from '../../actions/AssetActions';
+import PropTypes from 'prop-types';
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -42,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const AssetDataInfo = () => {
+const AssetDataInfo = ({ asset, setAssetSaveParam }) => {
   const [values, setValues] = useState({
     age: '',
     multiline: 'Controlled',
@@ -51,6 +55,7 @@ const AssetDataInfo = () => {
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
+    setAssetSaveParam({ [name]: event.target.value });
   };
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -72,7 +77,7 @@ const AssetDataInfo = () => {
               id="outlined-name"
               label="Asset Code"
               className={classes.textField}
-              onChange={handleChange('name')}
+              onChange={handleChange('assetcode')}
               margin="normal"
               variant="outlined"
               fullWidth
@@ -84,7 +89,7 @@ const AssetDataInfo = () => {
               id="outlined-name"
               label="Asset Name"
               className={classes.textField}
-              onChange={handleChange('name')}
+              onChange={handleChange('assetname')}
               margin="normal"
               variant="outlined"
               fullWidth
@@ -98,7 +103,7 @@ const AssetDataInfo = () => {
               className={classes.textField}
               multiline
               rows="6"
-              onChange={handleChange('name')}
+              onChange={handleChange('assetdesc')}
               margin="normal"
               variant="outlined"
               fullWidth
@@ -191,4 +196,15 @@ const AssetDataInfo = () => {
   );
 };
 
-export default AssetDataInfo;
+AssetDataInfo.propTypes = {
+  asset: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  asset: state.asset
+});
+
+export default connect(
+  mapStateToProps,
+  { setAssetSaveParam }
+)(AssetDataInfo);

@@ -13,8 +13,10 @@ import {
   ASSET_SUB_CATEGORY,
   ASSET_CUSTODIAN,
   SET_SIDEBAR_MENU,
-  ASSET_SAVE
+  ASSET_SAVE,
+  ASSET_DATA_CLEAR
 } from '../types/Assettypes';
+import axios from 'axios';
 
 /// load asset list per user ///
 export const getAssetList = () => async dispatch => {
@@ -216,7 +218,7 @@ export const getAssetMaintenance = seltype => async dispatch => {
 export const SaveAssetInfo = assetdata => async dispatch => {
   try {
     setLoading();
-    const res = await fetch('/api/assetSelect/', {
+    const res = await fetch('/api/assetTrans', {
       method: 'POST',
       body: JSON.stringify(assetdata),
       headers: {
@@ -226,10 +228,11 @@ export const SaveAssetInfo = assetdata => async dispatch => {
 
     const data = await res.json();
 
-    dispatch({
-      type: ASSET_SAVE,
-      payload: data
-    });
+    if (data === 'Saving successful') {
+      dispatch({
+        type: ASSET_DATA_CLEAR
+      });
+    }
   } catch (err) {
     console.error(err.message, 'Save Asset Error');
     dispatch({

@@ -37,6 +37,20 @@
       "CatDesc": "COMMUNICATION EQUIPMENT"
     }
   ],
+  "Maintenance": [
+    {
+      "MainteID": 23,
+      "MainteDesc": "In House"
+    },
+    {
+      "MainteID": 24,
+      "MainteDesc": "Third Party"
+    },
+    {
+      "MainteID": 33,
+      "MainteDesc": ""
+    }
+  ],
   "Status": [
     {
       "StatusID": 60,
@@ -97,20 +111,6 @@
     {
       "StatusID": 76,
       "StatusDesc": "Deleted"
-    }
-  ],
-  "Maintenance": [
-    {
-      "MainteID": 23,
-      "MainteDesc": "In House"
-    },
-    {
-      "MainteID": 24,
-      "MainteDesc": "Third Party"
-    },
-    {
-      "MainteID": 33,
-      "MainteDesc": ""
     }
   ],
   "Service": [

@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import { connect } from 'react-redux';
 import { SaveAssetInfo } from '../../actions/AssetActions';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   fab: {
@@ -43,12 +44,13 @@ const redstyle = {
   position: 'fixed'
 };
 
-const AssetDataButtons = ({ asset: { assetdata }, SaveAssetInfo }) => {
+const AssetDataButtons = ({ asset: { assetsave }, SaveAssetInfo }) => {
   const classes = useStyles();
 
   const SaveClick = e => {
     e.preventDefault();
-    SaveAssetInfo(assetdata);
+    SaveAssetInfo(assetsave);
+    //SaveAssetInfo({ statselect: 'test', catselect: 'test1' });
   };
 
   return (
@@ -76,6 +78,11 @@ const AssetDataButtons = ({ asset: { assetdata }, SaveAssetInfo }) => {
       </Grid>
     </div>
   );
+};
+
+AssetDataButtons.propTypes = {
+  assetsave: PropTypes.object.isRequired,
+  SaveAssetInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({

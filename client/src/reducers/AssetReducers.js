@@ -13,7 +13,8 @@ import {
   ASSET_MAINTE_TYPE,
   ASSET_CUSTODIAN,
   SET_SIDEBAR_MENU,
-  ASSET_SAVE
+  ASSET_SAVE,
+  ASSET_DATA_CLEAR
 } from '../types/Assettypes';
 
 const initialState = {
@@ -32,7 +33,13 @@ const initialState = {
   assetmainte: [],
   assetcustodian: [],
   opencloseMenu: false,
-  assetsave: { statselect: '', catselect: '' }
+  assetsave: {
+    assetcode: '',
+    assetname: '',
+    assetdesc: '',
+    statselect: '',
+    catselect: ''
+  }
 };
 
 export default (state = initialState, action) => {
@@ -96,6 +103,17 @@ export default (state = initialState, action) => {
       return { ...state, assetcustodian: action.payload };
     case SET_SIDEBAR_MENU:
       return { ...state, opencloseMenu: true }; // para sa appsidebarmenu eto aayusin pa
+    case ASSET_DATA_CLEAR:
+      return {
+        ...state,
+        assetsave: {
+          assetcode: '',
+          assetname: '',
+          assetdesc: '',
+          statselect: '',
+          catselect: ''
+        }
+      };
     case ASSET_SAVE:
       console.log(action.payload);
       const catkey =
@@ -104,6 +122,12 @@ export default (state = initialState, action) => {
         action.payload.statselect === undefined
           ? ''
           : action.payload.statselect;
+      const codekey =
+        action.payload.assetcode === undefined ? '' : action.payload.assetcode;
+      const namekey =
+        action.payload.assetname === undefined ? '' : action.payload.assetname;
+      const desckey =
+        action.payload.assetdesc === undefined ? '' : action.payload.assetdesc;
       //// checker ko ng data to /////
       const dataset = {
         ...state,
@@ -119,7 +143,25 @@ export default (state = initialState, action) => {
               ? state.assetsave.statselect === statkey
                 ? state.assetsave.statselect
                 : statkey
-              : state.assetsave.statselect
+              : state.assetsave.statselect,
+          assetcode:
+            codekey !== ''
+              ? state.assetsave.assetcode === codekey
+                ? state.assetsave.assetcode
+                : codekey
+              : state.assetsave.assetcode,
+          assetname:
+            namekey !== ''
+              ? state.assetsave.assetname === namekey
+                ? state.assetsave.assetname
+                : namekey
+              : state.assetsave.assetname,
+          assetdesc:
+            desckey !== ''
+              ? state.assetsave.assetdesc === desckey
+                ? state.assetsave.assetdesc
+                : desckey
+              : state.assetsave.assetdesc
         }
       };
 
@@ -140,7 +182,25 @@ export default (state = initialState, action) => {
               ? state.assetsave.statselect === statkey
                 ? state.assetsave.statselect
                 : statkey
-              : state.assetsave.statselect
+              : state.assetsave.statselect,
+          assetcode:
+            codekey !== ''
+              ? state.assetsave.assetcode === codekey
+                ? state.assetsave.assetcode
+                : codekey
+              : state.assetsave.assetcode,
+          assetname:
+            namekey !== ''
+              ? state.assetsave.assetname === namekey
+                ? state.assetsave.assetname
+                : namekey
+              : state.assetsave.assetname,
+          assetdesc:
+            desckey !== ''
+              ? state.assetsave.assetdesc === desckey
+                ? state.assetsave.assetdesc
+                : desckey
+              : state.assetsave.assetdesc
         }
       };
 
