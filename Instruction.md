@@ -60,3 +60,6 @@ https://www.youtube.com/watch?v=jXp05H8whtM
 
 16. npm i @material-ui/pickers @date-io/date-fns date-fns@next
     datetimepickers = https://material-ui-pickers.dev/getting-started/installation
+
+17. npm i react-swipeable-views
+    used for mobile devices swiping gestures

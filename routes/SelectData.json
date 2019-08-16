@@ -1,42 +1,4 @@
 {
-  "Category": [
-    {
-      "id": 0,
-      "CatDesc": "N/A"
-    },
-    {
-      "id": 80,
-      "CatDesc": "BUILDING AND FACILITY"
-    },
-    {
-      "id": 81,
-      "CatDesc": "ICT EQUIPMENTS"
-    },
-    {
-      "id": 82,
-      "CatDesc": "OFFICE FURNITURE AND EQUIPMENT"
-    },
-    {
-      "id": 83,
-      "CatDesc": "TRANSPORTATION EQUIPMENT"
-    },
-    {
-      "id": 84,
-      "CatDesc": "HANDLING PORT EQUIPMENTS"
-    },
-    {
-      "id": 127,
-      "CatDesc": "OTHERS"
-    },
-    {
-      "id": 147,
-      "CatDesc": "CAMERA"
-    },
-    {
-      "id": 152,
-      "CatDesc": "COMMUNICATION EQUIPMENT"
-    }
-  ],
   "Maintenance": [
     {
       "MainteID": 23,
@@ -49,6 +11,48 @@
     {
       "MainteID": 33,
       "MainteDesc": ""
+    }
+  ],
+  "Service": [
+    {
+      "DepCode": "ENGRG-CONSMA",
+      "DepName": "CONSTRUCTION & MAINTENANCE"
+    },
+    {
+      "DepCode": "ENGRG-DREDG",
+      "DepName": "DREDGING"
+    },
+    {
+      "DepCode": "ENGRG",
+      "DepName": "ENGINEERING"
+    },
+    {
+      "DepCode": "ITHNI",
+      "DepName": "ENTERPRISE SYSTEM DELIVERY"
+    },
+    {
+      "DepCode": "MATMA",
+      "DepName": "MATERIALS MANAGEMENT AND GENERAL SERVICES"
+    },
+    {
+      "DepCode": "ENGRG-NAVIG",
+      "DepName": "NAVIGATION"
+    },
+    {
+      "DepCode": "ENGRG-ENGRHD",
+      "DepName": "OFFICE OF THE ENGR HEAD"
+    },
+    {
+      "DepCode": "POMAH",
+      "DepName": "OFFICE OF THE MATERIALS MANAGEMENT HEAD"
+    },
+    {
+      "DepCode": "ORD",
+      "DepName": "OPERATIONS RESOURCE"
+    },
+    {
+      "DepCode": "ENGRG-PROJMA",
+      "DepName": "PROJECT MANAGEMENT"
     }
   ],
   "Status": [
@@ -113,46 +117,42 @@
       "StatusDesc": "Deleted"
     }
   ],
-  "Service": [
+  "Category": [
     {
-      "DepCode": "ENGRG-CONSMA",
-      "DepName": "CONSTRUCTION & MAINTENANCE"
+      "id": 0,
+      "CatDesc": "N/A"
     },
     {
-      "DepCode": "ENGRG-DREDG",
-      "DepName": "DREDGING"
+      "id": 80,
+      "CatDesc": "BUILDING AND FACILITY"
     },
     {
-      "DepCode": "ENGRG",
-      "DepName": "ENGINEERING"
+      "id": 81,
+      "CatDesc": "ICT EQUIPMENTS"
     },
     {
-      "DepCode": "ITHNI",
-      "DepName": "ENTERPRISE SYSTEM DELIVERY"
+      "id": 82,
+      "CatDesc": "OFFICE FURNITURE AND EQUIPMENT"
     },
     {
-      "DepCode": "MATMA",
-      "DepName": "MATERIALS MANAGEMENT AND GENERAL SERVICES"
+      "id": 83,
+      "CatDesc": "TRANSPORTATION EQUIPMENT"
     },
     {
-      "DepCode": "ENGRG-NAVIG",
-      "DepName": "NAVIGATION"
+      "id": 84,
+      "CatDesc": "HANDLING PORT EQUIPMENTS"
     },
     {
-      "DepCode": "ENGRG-ENGRHD",
-      "DepName": "OFFICE OF THE ENGR HEAD"
+      "id": 127,
+      "CatDesc": "OTHERS"
     },
     {
-      "DepCode": "POMAH",
-      "DepName": "OFFICE OF THE MATERIALS MANAGEMENT HEAD"
+      "id": 147,
+      "CatDesc": "CAMERA"
     },
     {
-      "DepCode": "ORD",
-      "DepName": "OPERATIONS RESOURCE"
-    },
-    {
-      "DepCode": "ENGRG-PROJMA",
-      "DepName": "PROJECT MANAGEMENT"
+      "id": 152,
+      "CatDesc": "COMMUNICATION EQUIPMENT"
     }
   ],
   "Division": [

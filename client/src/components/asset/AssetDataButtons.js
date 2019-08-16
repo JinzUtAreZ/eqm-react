@@ -6,7 +6,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import { connect } from 'react-redux';
-import { SaveAssetInfo } from '../../actions/AssetActions';
+import { SaveAssetInfo, ClearAssetInfo } from '../../actions/AssetActions';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -44,13 +44,22 @@ const redstyle = {
   position: 'fixed'
 };
 
-const AssetDataButtons = ({ asset: { assetsave }, SaveAssetInfo }) => {
+const AssetDataButtons = ({
+  asset: { assetsave },
+  SaveAssetInfo,
+  ClearAssetInfo
+}) => {
   const classes = useStyles();
 
   const SaveClick = e => {
     e.preventDefault();
     SaveAssetInfo(assetsave);
     //SaveAssetInfo({ statselect: 'test', catselect: 'test1' });
+  };
+
+  const DeleteClick = e => {
+    e.preventDefault();
+    ClearAssetInfo();
   };
 
   return (
@@ -70,7 +79,12 @@ const AssetDataButtons = ({ asset: { assetsave }, SaveAssetInfo }) => {
             </Fab>
           </Tooltip>
           <Tooltip title="Cancel to Clear Form" aria-label="Add">
-            <Fab style={redstyle} aria-label="Edit" className={classes.fab}>
+            <Fab
+              style={redstyle}
+              aria-label="Edit"
+              className={classes.fab}
+              onClick={DeleteClick}
+            >
               <CancelIcon />
             </Fab>
           </Tooltip>
@@ -81,8 +95,9 @@ const AssetDataButtons = ({ asset: { assetsave }, SaveAssetInfo }) => {
 };
 
 AssetDataButtons.propTypes = {
-  assetsave: PropTypes.object.isRequired,
-  SaveAssetInfo: PropTypes.func.isRequired
+  //assetsave: PropTypes.object.isRequired,
+  SaveAssetInfo: PropTypes.func.isRequired,
+  ClearAssetInfo: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -91,5 +106,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { SaveAssetInfo }
+  { SaveAssetInfo, ClearAssetInfo }
 )(AssetDataButtons);

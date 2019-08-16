@@ -28,7 +28,7 @@ const AssetList = ({
           console.log(rowData);
         },
         style: {
-          background: rowInfo.index === selected ? '#00afec' : 'white',
+          background: rowInfo.index === selected ? '#00afec' : '',
           color: rowInfo.index === selected ? 'white' : 'black'
         }
       };

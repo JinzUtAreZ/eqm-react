@@ -19,6 +19,7 @@ import Create from '../pages/Create';
 import ContactUs from '../pages/ContactUs';
 import AssetList from '../asset/Assetlist';
 import AssetData from '../asset/AssetData';
+import JobOrderData from '../joborder/JOMain';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setMenuOpenClose } from '../../actions/AssetActions';
@@ -176,6 +177,7 @@ const AppbarSidebar = ({ setMenuOpenClose }) => {
           <Route exact path="/contactus" component={ContactUs} />
           <Route exact path="/AssetList" component={AssetList} />
           <Route exact path="/AssetData" component={AssetData} />
+          <Route exact path="/JobOrderData" component={JobOrderData} />
         </Switch>
       </main>
     </div>

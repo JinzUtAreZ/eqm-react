@@ -16,7 +16,7 @@ import {
   ASSET_SAVE,
   ASSET_DATA_CLEAR
 } from '../types/Assettypes';
-import axios from 'axios';
+//import axios from 'axios';
 
 /// load asset list per user ///
 export const getAssetList = () => async dispatch => {
@@ -263,5 +263,13 @@ export const setAssetSaveParam = assetdata => {
   return {
     type: ASSET_SAVE,
     payload: assetdata
+  };
+};
+
+//// set clear ////
+
+export const ClearAssetInfo = () => {
+  return {
+    type: ASSET_DATA_CLEAR
   };
 };

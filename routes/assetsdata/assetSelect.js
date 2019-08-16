@@ -118,13 +118,7 @@ router.get('/:seltype/:userselect', (req, res) => {
       break;
   }
 
-  // if (seltype == 'Department') {
-  //   inputdata = 'inDivision';
-  //   proctype = 'spLoad_AssetDepartment_React';
-  // } else if (seltype == 'SubCategory') {
-  //   inputdata = 'inCategory';
-  //   proctype = 'spLoad_AssetSubcategory_React';
-  // }
+  console.log(seltype, inputdata, proctype);
 
   //console.log(seltype, userselect);
   try {

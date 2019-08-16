@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import AssetReducer from './AssetReducers';
+import JOReducer from './JOReducers';
 
 export default combineReducers({
-  asset: AssetReducer
+  asset: AssetReducer,
+  jo: JOReducer
 });
