@@ -26,6 +26,7 @@ import Create from '../pages/Create';
 import ContactUs from '../pages/ContactUs';
 import AssetList from '../asset/Assetlist';
 import AssetData from '../asset/AssetData';
+import JobOrderData from '../joborder/JOMain';
 
 const drawerWidth = 240;
 
@@ -222,6 +223,7 @@ export default function PersistentDrawerLeft() {
           <Route exact path="/contactus" component={ContactUs} />
           <Route exact path="/AssetList" component={AssetList} />
           <Route exact path="/AssetData" component={AssetData} />
+          <Route exact path="/JobOrderData" component={JobOrderData} />
         </Switch>
       </main>
     </div>

@@ -14,7 +14,7 @@ app.use('/api/assetSelect', require('./routes/assetsdata/assetSelect'));
 app.use('/api/assetTrans', require('./routes/assetsdata/assetTrans'));
 
 //// routers for joborder ////
-//app.use('/api/joMeter', require('./routes/jodata/meter'));
+app.use('/api/joMeter', require('./routes/jodata/joMeter'));
 
 //// established connection //
 app.listen(connect.port(), function() {

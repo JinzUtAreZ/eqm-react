@@ -9,7 +9,7 @@
     "client": "npm start --prefix client",
     "clientinstall": "npm install --prefix client",
     "json-server": "json-server --watch tbldata.json --port 5000",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run json-server\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Mathew Uy",
   "license": "ISC",

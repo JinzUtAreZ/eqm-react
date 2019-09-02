@@ -5,11 +5,7 @@ import 'react-table/react-table.css';
 import { connect } from 'react-redux';
 import { deleteJOMeterRow, getJOMeterList } from '../../actions/JOActions';
 
-const JOMeter = ({
-  jo: { meterlist, metercol },
-  deleteJOMeterRow,
-  getJOMeterList
-}) => {
+const JOMeter = ({ jo: { meterlist }, deleteJOMeterRow, getJOMeterList }) => {
   const [selected, setSelect] = useState(-1);
 
   const fakeData = [
@@ -18,8 +14,7 @@ const JOMeter = ({
     { name: 'name3', age: 70, address: 'address3' }
   ];
 
-  let tbldata = useState([]);
-  const [newtbldata, setTblData] = useState(fakeData);
+  const [tbldata, setTblData] = useState(fakeData);
 
   useEffect(() => {
     getJOMeterList();
@@ -52,7 +47,7 @@ const JOMeter = ({
     console.log('DELETE', row.original);
     //tbldata.splice(row.index, 1);
     //setTblData(tbldata);
-    const arrayCopy = newtbldata.filter(row => row.index !== row);
+    const arrayCopy = tbldata.filter(row => row.index !== row);
     //this.setState({data: arrayCopy});
     setTblData(arrayCopy);
   };
@@ -87,30 +82,15 @@ const JOMeter = ({
       }
     ]
   };
-
-  if (meterlist !== null) {
-    if (meterlist.length === 0) {
-      tbldata = <p className="center">No data to show ...</p>;
-    } else {
-      tbldata = (
-        <ReactTable
-          data={meterlist}
-          columns={metercol}
-          defaultPageSize={10}
-          className="-striped -highlight"
-          getTrProps={ClickRow}
-        />
-      );
-    }
-  }
-
   return (
     <div>
-      {meterlist === null ? (
-        <p className="center">No data to show ...</p>
-      ) : (
-        tbldata
-      )}
+      <ReactTable
+        data={tbldata}
+        minRows={0}
+        columns={state.columns}
+        className="-striped -highlight"
+        getTrProps={ClickRow}
+      />
     </div>
   );
 };

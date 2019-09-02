@@ -1,60 +1,4 @@
 {
-  "Maintenance": [
-    {
-      "MainteID": 23,
-      "MainteDesc": "In House"
-    },
-    {
-      "MainteID": 24,
-      "MainteDesc": "Third Party"
-    },
-    {
-      "MainteID": 33,
-      "MainteDesc": ""
-    }
-  ],
-  "Service": [
-    {
-      "DepCode": "ENGRG-CONSMA",
-      "DepName": "CONSTRUCTION & MAINTENANCE"
-    },
-    {
-      "DepCode": "ENGRG-DREDG",
-      "DepName": "DREDGING"
-    },
-    {
-      "DepCode": "ENGRG",
-      "DepName": "ENGINEERING"
-    },
-    {
-      "DepCode": "ITHNI",
-      "DepName": "ENTERPRISE SYSTEM DELIVERY"
-    },
-    {
-      "DepCode": "MATMA",
-      "DepName": "MATERIALS MANAGEMENT AND GENERAL SERVICES"
-    },
-    {
-      "DepCode": "ENGRG-NAVIG",
-      "DepName": "NAVIGATION"
-    },
-    {
-      "DepCode": "ENGRG-ENGRHD",
-      "DepName": "OFFICE OF THE ENGR HEAD"
-    },
-    {
-      "DepCode": "POMAH",
-      "DepName": "OFFICE OF THE MATERIALS MANAGEMENT HEAD"
-    },
-    {
-      "DepCode": "ORD",
-      "DepName": "OPERATIONS RESOURCE"
-    },
-    {
-      "DepCode": "ENGRG-PROJMA",
-      "DepName": "PROJECT MANAGEMENT"
-    }
-  ],
   "Status": [
     {
       "StatusID": 60,
@@ -153,6 +97,62 @@
     {
       "id": 152,
       "CatDesc": "COMMUNICATION EQUIPMENT"
+    }
+  ],
+  "Maintenance": [
+    {
+      "MainteID": 23,
+      "MainteDesc": "In House"
+    },
+    {
+      "MainteID": 24,
+      "MainteDesc": "Third Party"
+    },
+    {
+      "MainteID": 33,
+      "MainteDesc": ""
+    }
+  ],
+  "Service": [
+    {
+      "DepCode": "ENGRG-CONSMA",
+      "DepName": "CONSTRUCTION & MAINTENANCE"
+    },
+    {
+      "DepCode": "ENGRG-DREDG",
+      "DepName": "DREDGING"
+    },
+    {
+      "DepCode": "ENGRG",
+      "DepName": "ENGINEERING"
+    },
+    {
+      "DepCode": "ITHNI",
+      "DepName": "ENTERPRISE SYSTEM DELIVERY"
+    },
+    {
+      "DepCode": "MATMA",
+      "DepName": "MATERIALS MANAGEMENT AND GENERAL SERVICES"
+    },
+    {
+      "DepCode": "ENGRG-NAVIG",
+      "DepName": "NAVIGATION"
+    },
+    {
+      "DepCode": "ENGRG-ENGRHD",
+      "DepName": "OFFICE OF THE ENGR HEAD"
+    },
+    {
+      "DepCode": "POMAH",
+      "DepName": "OFFICE OF THE MATERIALS MANAGEMENT HEAD"
+    },
+    {
+      "DepCode": "ORD",
+      "DepName": "OPERATIONS RESOURCE"
+    },
+    {
+      "DepCode": "ENGRG-PROJMA",
+      "DepName": "PROJECT MANAGEMENT"
     }
   ],
   "Division": [

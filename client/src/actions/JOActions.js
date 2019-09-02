@@ -2,6 +2,7 @@ import {
   JO_METER_LOAD_FORKLIFT_HD,
   JO_METER_GET_LIST,
   JO_METER_UPDATE_LIST_ROW,
+  JO_METER_DELETE_LIST_ROW,
   JO_METER_SAVE_LIST,
   JO_METER_SEARCH_LIST,
   SET_LOADING,
@@ -32,4 +33,11 @@ export const getJOMeterList = () => async dispatch => {
       payload: err.response.statusText
     });
   }
+};
+
+export const deleteJOMeterRow = rowid => async dispatch => {
+  dispatch({
+    type: JO_METER_DELETE_LIST_ROW,
+    payload: rowid
+  });
 };
