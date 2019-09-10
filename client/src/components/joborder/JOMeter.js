@@ -94,8 +94,8 @@ const JOMeter = ({
     } else {
       tbldata = (
         <ReactTable
-          data={meterlist}
-          columns={metercol}
+          data={newtbldata}
+          columns={state.columns}
           defaultPageSize={10}
           className="-striped -highlight"
           getTrProps={ClickRow}

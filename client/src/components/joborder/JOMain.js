@@ -18,6 +18,7 @@ import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 
 import JOMeter from '../joborder/JOMeter';
+import JOMats from '../joborder/JOMats';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -190,7 +191,7 @@ const JOMain = () => {
         {/* </Paper> */}
         <Paper className={classes.paper}>
           <TabPanel value={value} index={2} dir={theme.direction}>
-            Item Three
+            <JOMats />
           </TabPanel>
         </Paper>
       </SwipeableViews>

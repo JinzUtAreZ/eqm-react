@@ -64,4 +64,4 @@ https://www.youtube.com/watch?v=jXp05H8whtM
 17. npm i react-swipeable-views
     used for mobile devices swiping gestures
 
-18. learn redux table in https://codepen.io/Shamiul_Hoque/pen/OboVWQ
+18. check editable grid https://www.youtube.com/watch?v=wi_vD0Yvc0g

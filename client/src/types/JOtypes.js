@@ -6,3 +6,4 @@ export const JO_METER_SAVE_LIST = 'JO_METER_SAVE_LIST';
 export const JO_METER_SEARCH_LIST = 'JO_METER_SEARCH_LIST';
 export const SET_LOADING = 'SET_LOADING';
 export const JO_METER_ERROR = 'JO_METER_ERROR';
+export const JO_MATER_LIST = 'JO_MATER_LIST';

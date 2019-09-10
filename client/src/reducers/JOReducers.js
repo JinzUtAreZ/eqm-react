@@ -5,6 +5,7 @@ import {
   JO_METER_DELETE_LIST_ROW,
   JO_METER_SAVE_LIST,
   JO_METER_SEARCH_LIST,
+  JO_MATER_LIST,
   SET_LOADING
 } from '../types/JOtypes';
 
@@ -14,7 +15,8 @@ const initialState = {
   metercol: null,
   current: null,
   filtered: null,
-  error: null
+  error: null,
+  materlist: null
 };
 
 export default (state = initialState, action) => {
@@ -70,6 +72,13 @@ export default (state = initialState, action) => {
         meterlist: state.meterlist.filter(
           meterlist => meterlist._id !== action.payload
         ),
+        loading: false
+      };
+    case JO_MATER_LIST:
+      console.log(action.payload);
+      return {
+        ...state,
+        materlist: action.payload,
         loading: false
       };
     default:

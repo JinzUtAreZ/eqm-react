@@ -6,6 +6,7 @@ import {
   JO_METER_SAVE_LIST,
   JO_METER_SEARCH_LIST,
   SET_LOADING,
+  JO_MATER_LIST,
   JO_METER_ERROR
 } from '../types/JOtypes';
 
@@ -40,4 +41,23 @@ export const deleteJOMeterRow = rowid => async dispatch => {
     type: JO_METER_DELETE_LIST_ROW,
     payload: rowid
   });
+};
+
+export const getJOMaterList = () => async dispatch => {
+  try {
+    setLoading();
+    const res = await fetch('/api/JOMeter');
+    const data = await res.json();
+
+    dispatch({
+      type: JO_MATER_LIST,
+      payload: data
+    });
+  } catch (err) {
+    console.error(err.message);
+    dispatch({
+      type: JO_METER_ERROR,
+      payload: err.response.statusText
+    });
+  }
 };
